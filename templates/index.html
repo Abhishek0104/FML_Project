@@ -1,0 +1,20 @@
+<!doctype html>
+<title>CNN for Expression Evaluation</title>
+<h2>Select an image to test...</h2>
+<p>
+	{% with posts = get_flashed_messages() %}
+	  {% if posts %}
+        <img src="{{url_for('static', filename='emojis/'+posts[0]+".png")}}" alt="{{posts[0]}}" width="250" height="250">
+	  {% endif %}
+	{% endwith %}
+</p>
+<form method="post" action="/" enctype="multipart/form-data">
+    <dl>
+	<p>
+		<input type="file" name="file" autocomplete="off" required>
+	</p>
+    </dl>
+    <p>
+	<input type="submit" value="Submit">
+    </p>
+</form>
